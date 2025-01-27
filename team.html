@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link rel="shortcut icon" type="image/png" href="img/icon.png" /> -->
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="queries.css">
+
+    <title>Pater Noster Insurance Brokers</title>
+
+    <script defer src="script.js"></script>
+    <style>
+         * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+        .section--teams {
+            padding: 5rem;
+        }
+        .header2--title {
+           text-align: center;
+           font-size: 4rem;
+           padding: 4rem 0;
+        }
+    
+    .team-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+   
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    .team-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: calc(50% - 20px); /* Two cards per row */
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .team-card:hover {
+      transform: translateY(-5px);
+      cursor: pointer;
+    }
+    .team-image {
+      width: 100%;
+      height:300px;
+      object-fit: contain; /* Ensures the entire image is visible */
+      background-color: #f0f0f0; /* Optional: background color */
+    }
+    .team-info {
+      padding: 15px;
+    }
+
+    .team-info a {
+        font-size: 1.5rem;
+    }
+    .team-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #444;
+    }
+    .team-role {
+      font-size: 1.2rem;
+      color: #777;
+    }
+
+    .section--about {
+        width: 70%;
+        margin-left: 15%;
+        font-size: 1.7rem;
+        /* line-height: 3rem; */
+    }
+    @media (max-width: 768px) {
+      .team-card {
+        width: 100%; /* Single card per row on smaller screens */
+      }
+    }
+  </style>
+
+ 
+  </head>
+  <body>
+    <header class="header2" id="header">
+        <!-- <button class="nav__toggle">☰</button> -->
+
+      <nav class="nav">
+        <img
+          src=".//img/logo-pn.png"
+          alt="Bankist logo"
+          class="nav__logo"
+          id="logo"
+          designer="Jonas"
+          data-version-number="3.0"
+        />
+        <ul class="nav__links">
+          <li class="nav__item">
+            <a class="nav__link" href="./index.html">Home</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#company">About Us</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="index.html#section--2">Services</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link nav__link--btn btn--show-modal" href="#"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <section class="section section--teams" id="team">
+        <div class="team-container">
+            <h1 class="header2--title">Meet Our Team: Board of Directors</h1>
+            <div class="team-grid">
+              <!-- Team Member 1 -->
+              <div class="team-card">
+                <img src="./img/chairperson.jpeg" alt="Team Member" class="team-image">
+                <div class="team-info">
+                  <p class="team-name">Hajia Rukkayah Nahuche</p>
+                  <p class="team-role">Chairperson</p>
+                </div>
+              </div>
+               <!-- Team Member 2 -->
+              <div class="team-card">
+                <img src="./img/team.jpeg" alt="Team Member" class="team-image">
+                <div class="team-info">
+                  <p class="team-name">David Bajani</p>
+                  <p class="team-role">Non-Executive Director</p>
+                </div>
+              </div>
+              <!-- Team Member 3 -->
+              <div class="team-card">
+                <img src="./img/hassan lawal.jpg" alt="Team Member" class="team-image">
+                <div class="team-info">
+                  <p class="team-name">Hassan Lawal</p>
+                  <p class="team-role">Non-Executive Director</p>
+                </div>
+              </div>
+             
+            
+              <!-- Team Member 4 -->
+              <div class="team-card">
+                <img src="./img/mdceo.jpeg" alt="Team Member" class="team-image">
+                <div class="team-info">
+                  <p class="team-name">Mr Akinbode Olutayo Amos</p>
+                  <p class="team-role">Managing Director/CEO</p>
+                </div>
+              </div>
+
+              <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG5hdHVyZXxlbnwwfHwwfHx8MA%3D%3D" alt="Team Member" class="team-image">
+                <div class="team-info">
+                  <p class="team-name">Mr Tijani Ahmed</p>
+                  <p class="team-role">Non-Executive Director</p>
+                </div>
+              </div>
+
+
+              <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1481026469463-66327c86e544?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnVpbGRpbmd8ZW58MHx8MHx8fDA%3D" alt="Team Member" class="team-image">
+                <div class="team-info">
+                  <a href="./index.html" class="sect-links">Back to Home</a>
+              </div>
+
+              
+            </div>
+            </div>
+            
+            
+          </div>
+      </section>
+
+      <section class="section section--about" id="company">
+        <h2 class="section__description">Our company</h2>
+        <p>Pater Noster Insurance Brokers Limited was incorporated under the Companies and
+            Allied Matters ACT 1990 on the 21st March 2002 RC NO. 446189, and registered With National Insurance Commission with registration NO: RBC 1114 under the insurance act 2003. Our company is a firm of Financial Services Experts in Insurance Brokerage, Authorized Share capital of N 10,000,000.00 fully paid.</p> 
+            
+            <p>By virtue of the high standard of our services and
+                the calibre of our clientele, we maintain adequate professional Indemnity Insurance
+                cover. We ensure quality in our service delivery with state of the art information technology and extraordinary human capital committed to the highest standard in our Core Business
+                Areas. Our company no doubt operates as a clearly innovative company applying market led theory.</p> 
+                
+              <p> We are out to provide the best services there is as far as the profession offers to
+            both our clients and our partners. We have a very hard working and result oriented management team, backed up by a visionary board comprising young and agile investors and professionals who have distinguished themselves in their respective field of endeavours.</p>
+      </section>
+      
+      </header>
+     
+
+      
+
+
+      <section class="section section--sign-up">
+        <div class="section__title">
+          <h3 class="section__header">
+            The best day to join us was one year ago. The second best is today!
+          </h3>
+        </div>
+        <button class="btn btn--show-modal">Join today!</button>
+      </section>
+  
+      <footer class="footer">
+        <ul class="footer__nav">
+          <li class="footer__item">
+            <a class="footer__link" href="#">About</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" href="#">Pricing</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" href="#">User Agreement</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" href="#">Privacy Policy</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" href="#">Careers</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" href="#">Blog</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" href="#">Contact Us</a>
+          </li>
+        </ul>
+        <!-- <img src="img/icon.png" alt="Logo" class="footer__logo" /> -->
+        <!-- <p class="footer__copyright">
+          &copy; Copyright by
+          <a
+            class="footer__link twitter-link"
+            target="_blank"
+            href="https://twitter.com/jonasschmedtman"
+            >Jonas Schmedtmann</a
+          >
+        </p> -->
+      </footer>
+  
+      <div class="modal hidden">
+        <button class="btn--close-modal">&times;</button>
+        <h2 class="modal__header">
+          Sign up <br />
+          in just <span class="highlight">2 minutes</span>
+        </h2>
+        <form class="modal__form">
+          <label>First Name</label>
+          <input type="text" />
+          <label>Last Name</label>
+          <input type="text" />
+          <label>Email Address</label>
+          <input type="email" />
+          <button class="btn">Next step &rarr;</button>
+        </form>
+      </div>
+      <div class="overlay hidden"></div>
+  
+      <!-- <script src="script.js"></script> -->
+    </body>
+  </html>
+  
+        
+      </body>
