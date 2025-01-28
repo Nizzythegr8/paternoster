@@ -157,12 +157,12 @@ headerObserver.observe(header);
 
 /////////////////////////////////
 //Mobile nav toggle
-const navToggle = document.querySelector('.nav__toggle');
-const navLinks = document.querySelector('.nav__links');
+// const navToggle = document.querySelector('.nav__toggle');
+// const navLinks = document.querySelector('.nav__links');
 
-navToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
+// navToggle.addEventListener('click', () => {
+//   navLinks.classList.toggle('active');
+// });
 
 
 ///////////////////////////////////////
