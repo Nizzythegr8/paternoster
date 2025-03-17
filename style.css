@@ -2,8 +2,8 @@
 
 :root {
   --color-primary: #5687f0;
-  --color-secondary: #be42f7;
-  --color-tertiary: #7860cf;
+  --color-secondary: #a44bf7;
+  --color-tertiary: #8856d8;
   --color-primary-darker: #3469db;
   --color-secondary-darker: #ad34e6;
   --color-tertiary-darker: #7360b6;
@@ -100,6 +100,9 @@ body {
 p {
   color: #666;
 }
+.brief-info p {
+  font-size: 150%;
+}
 
 /* This is BAD for accessibility! Don't do in the real world! */
 button:focus {
@@ -114,8 +117,13 @@ img {
   filter: blur(20px);
 }
 
+#company-img-hidden {
+  display: none;
+}
+
 /* NAVIGATION */
-.nav {
+.nav,
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -125,6 +133,14 @@ img {
   z-index: 100;
 }
 
+.navbar {
+  display: none;
+}
+.mobile-nav {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
 /* nav and stickly class at the same time */
 .nav.sticky {
   position: fixed;
@@ -137,7 +153,8 @@ img {
   transition: all 0.3s;
 }
 
-.nav__links {
+.nav__links,
+.mobile-nav {
   display: flex;
   align-items: center;
   list-style: none;
@@ -287,18 +304,22 @@ h4 {
 .operations {
   max-width: 100rem;
   margin: 12rem auto 0 auto;
-
   background-color: #fff;
+  padding: 4rem 2rem; /* Adds spacing for smaller screens */
 }
 
 .operations__tab-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap; /* Ensures tabs wrap on smaller screens */
+  gap: 1rem;
 }
 
 .operations__tab {
   margin-right: 2.5rem;
   transform: translateY(-50%);
+  font-size: 1.5rem; /* Slightly smaller font for smaller screens */
+  padding: 1rem 1.5rem;
 }
 
 .operations__tab span {
@@ -310,7 +331,6 @@ h4 {
 .operations__tab--1 {
   background-color: var(--color-secondary);
 }
-
 .operations__tab--1:hover {
   background-color: var(--color-secondary-darker);
 }
@@ -319,7 +339,6 @@ h4 {
   background-color: var(--color-tertiary);
   margin: 0;
 }
-
 .operations__tab--3:hover {
   background-color: var(--color-tertiary-darker);
 }
@@ -330,8 +349,6 @@ h4 {
 
 .operations__content {
   display: none;
-
-  /* JUST PRESENTATIONAL */
   font-size: 1.7rem;
   padding: 2.5rem 7rem 6.5rem 7rem;
 }
@@ -479,20 +496,28 @@ h4 {
 
 /* TESTIMONIALS */
 .testimonial {
-  width: 65%;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto; /* Centers the content */
   position: relative;
 }
 
 .testimonial::before {
   content: '\201C';
   position: absolute;
-  top: -5.7rem;
-  left: -6.8rem;
+  font-size: 10rem; /* Reduce size on smaller screens */
+  top: -3rem;
+  left: -3rem;
   line-height: 1;
-  font-size: 20rem;
   font-family: inherit;
   color: var(--color-primary);
   z-index: -1;
+}
+.testimonial {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto; /* Centers the content */
+  position: relative;
 }
 
 .testimonial__header {
@@ -561,25 +586,27 @@ h4 {
   padding: 2rem 5rem;
 }
 
-/* FOOTER */
 .footer {
-  padding: 10rem 3rem;
+  padding: 5rem 2rem;
   background-color: #37383d;
+  text-align: center;
 }
 
 .footer__nav {
   list-style: none;
   display: flex;
   justify-content: center;
-  margin-bottom: 5rem;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  margin-bottom: 3rem;
+  padding: 0;
 }
 
 .footer__item {
-  margin-right: 4rem;
+  margin: 1rem 2rem; /* Reduce margin for better spacing */
 }
 
 .footer__link {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #eee;
   text-decoration: none;
 }
@@ -601,20 +628,29 @@ h4 {
   font-size: 1.4rem;
 }
 
-/* MODAL WINDOW */
-.modal {
+/* MODAL STYLES */
+.modal,
+.modal-2,
+.modal-3,
+.modal-4,
+.modal-5 {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 60rem;
+  max-width: 60rem; /* Default max-width for larger screens */
+  width: 90%; /* Adjusts to screen size */
   background-color: #f3f3f3;
   padding: 5rem 6rem;
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
   z-index: 1000;
   transition: all 0.5s;
+  border-radius: 10px;
+  overflow-y: auto; /* Allows scrolling if content overflows */
+  max-height: 80vh; /* Ensures modal doesn’t take full height */
 }
 
+/* Overlay */
 .overlay {
   position: fixed;
   top: 0;
@@ -627,12 +663,20 @@ h4 {
   transition: all 0.5s;
 }
 
+/* Modal header */
 .modal__header {
-  font-size: 3.25rem;
-  margin-bottom: 4.5rem;
-  line-height: 1.5;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  line-height: 1.4;
 }
 
+/* Modal Content */
+.brief-info {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: #444;
+}
 .modal__form {
   margin: 0 3rem;
   display: grid;
@@ -659,7 +703,11 @@ h4 {
   margin-top: 1rem;
 }
 
-.btn--close-modal {
+.btn--close-modal,
+.btn--close-modal-2,
+.btn--close-modal-3,
+.btn--close-modal-4,
+.btn--close-modal-5 {
   font-family: inherit;
   color: inherit;
   position: absolute;
@@ -686,4 +734,382 @@ h4 {
   color: #bbb;
   font-size: 1.5rem;
   font-weight: 400;
+}
+
+/* Tablets (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  /* REUSABLE COMPONENTS */
+  h1 {
+    font-size: 2rem;
+  }
+
+  .header__title {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .header__img {
+    grid-column: 1 / -1;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  /* OPERATIONS */
+  .operations__content {
+    padding: 2rem 5rem; /* Reduce padding on tablets */
+  }
+  .operations__tab {
+    font-size: 1.4rem;
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+/* Mobile screens (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .header {
+    height: 200vh;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .navbar {
+    display: flex;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-nav {
+    position: absolute;
+    padding: 2rem 0;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.973);
+    flex-direction: column;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  }
+
+  .mobile-nav.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .menu-toggle {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 9999; /* Ensure it's on top */
+    cursor: pointer; /* Change cursor */
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .menu-toggle span {
+    width: 20px;
+    height: 3px;
+    background: #3f3f3f;
+    transition: 0.3s;
+    border-radius: 10px;
+  }
+
+  /* Animated Toggle */
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .nav__item {
+    margin: 0.5rem 0;
+  }
+
+  .section__header {
+    font-size: 2.5rem;
+  }
+  .section {
+    padding: 6rem 1.5rem;
+  }
+
+  /* ABOUT */
+  #section--2 {
+    padding: 6rem 3rem;
+  }
+  .features__feature {
+    width: 90%;
+    text-align: center;
+  }
+  #company-img-hidden {
+    display: block;
+  }
+  #company-img {
+    display: none;
+  }
+
+  /* OPERATIONS */
+  .operations {
+    margin: 6rem auto 0 auto; /* Less margin on smaller screens */
+  }
+
+  .operations__tab {
+    font-size: 1.3rem;
+    margin-right: 1rem; /* Reduce spacing */
+  }
+
+  .operations__content--active {
+    grid-template-columns: 1fr; /* Make it a single column */
+    text-align: center;
+  }
+
+  .operations__icon {
+    margin: 0 auto;
+  }
+
+  .operations__content p {
+    grid-column: auto;
+  }
+
+  /* TESTIMONIAL */
+  .testimonial {
+    width: 100%; /* Use full width on smaller screens */
+    padding: 1rem;
+  }
+
+  .testimonial::before {
+    font-size: 8rem;
+    top: -2rem;
+    left: -2rem;
+  }
+
+  .testimonial__text {
+    font-size: 1.4rem; /* Reduce text size for readability */
+    margin-bottom: 2rem;
+  }
+
+  .testimonial__header {
+    font-size: 1.8rem;
+  }
+
+  .testimonial__author {
+    grid-template-columns: 1fr; /* Stack author info */
+    text-align: center;
+    row-gap: 0.5rem;
+    margin-left: 0;
+  }
+
+  .testimonial__photo {
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto;
+  }
+
+  .testimonial__name {
+    font-size: 1.5rem;
+  }
+
+  .testimonial__location {
+    font-size: 1.3rem;
+  }
+
+  /* footer */
+  .footer__nav {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: center;
+  }
+
+  .footer__item {
+    margin: 1rem 0; /* Space between stacked items */
+  }
+
+  /* Modal */
+  .modal,
+  .modal-2,
+  .modal-3,
+  .modal-4,
+  .modal-5 {
+    max-width: 90%;
+    width: 95%;
+    padding: 3rem 4rem;
+  }
+
+  .modal__header {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .brief-info {
+    font-size: 1.4rem;
+  }
+}
+
+/* Small Mobile screens (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  html {
+    width: 100%;
+    font-size: 52.5%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  .header {
+    height: 80vh;
+  }
+  .header__img {
+    display: none;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    line-height: 1.35;
+  }
+
+  h2,
+  h3,
+  h4 {
+    font-size: 2rem !important;
+  }
+  .features {
+    margin: 0;
+  }
+  .features__header {
+    font-size: 2rem;
+  }
+
+  .features__img {
+    width: 80%;
+    margin-left: 10%;
+  }
+
+  .section p,
+  .nav__link {
+    font-size: 1.5rem !important;
+  }
+  .section {
+    padding: 6rem 1.5rem;
+    font-size: 1.5rem;
+  }
+  .section__header {
+    font-size: 2.5rem;
+  }
+  /* OPERATIONS */
+  .operations__tab {
+    font-size: 1.2rem;
+    padding: 0.7rem 1rem;
+  }
+
+  .operations__content {
+    padding: 2rem 3rem; /* Further reduce padding */
+  }
+
+  .operations__header {
+    font-size: 1.8rem;
+  }
+  /* TESTIMONIAL */
+  .testimonial {
+    width: 90%; /* Use full width on smaller screens */
+    padding: 1rem;
+  }
+
+  .testimonial::before {
+    font-size: 8rem;
+    top: -2rem;
+    left: -2rem;
+  }
+
+  .testimonial__text {
+    font-size: 1.4rem; /* Reduce text size for readability */
+    margin-bottom: 2rem;
+  }
+
+  .testimonial__header {
+    font-size: 1.8rem;
+  }
+
+  .testimonial__author {
+    grid-template-columns: 1fr; /* Stack author info */
+    text-align: center;
+    row-gap: 0.5rem;
+    margin-left: 0;
+  }
+
+  .testimonial__photo {
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto;
+  }
+
+  .testimonial__name {
+    font-size: 1.5rem;
+  }
+
+  .testimonial__location {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    font-size: 1.4rem;
+    padding: 1rem 3rem;
+  }
+
+  .slider {
+    height: 60rem;
+  }
+
+  .slide {
+    height: 60rem;
+  }
+
+  .dots {
+    bottom: 1%;
+  }
+
+  .modal,
+  .modal-2,
+  .modal-3,
+  .modal-4,
+  .modal-5 {
+    max-width: 95%;
+    width: 98%;
+    padding: 2.5rem;
+  }
+
+  .modal__header {
+    font-size: 1.8rem;
+  }
+
+  .brief-info {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .btn--close-modal,
+  .btn--close-modal-2,
+  .btn--close-modal-3,
+  .btn--close-modal-4,
+  .btn--close-modal-5 {
+    font-size: 3rem;
+    top: 0.5rem;
+    right: 1rem;
+  }
 }

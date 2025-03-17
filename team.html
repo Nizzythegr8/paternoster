@@ -7,7 +7,7 @@
     <title>Best Insurance Brokerage Firm | Paternoster Insurance</title>
 <meta name="description" content="Get expert insurance brokerage services with Paternoster Insurance Brokers. We offer the best coverage plans tailored for you.">
 <meta name="keywords" content="insurance, brokerage, best insurance company, insurance brokers">
-<link rel="shortcut icon" type="image/png" href="img/logo-pn.png" />
+<link rel="shortcut icon" type="image/png" href="img/main-logo.jpg" />
 
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="queries.css">
 
     <script defer src="script.js"></script>
+
     <style>
          * {
       margin: 0;
@@ -89,6 +90,7 @@
         font-size: 1.7rem;
         /* line-height: 3rem; */
     }
+    
     @media (max-width: 768px) {
       .team-card {
         width: 100%; /* Single card per row on smaller screens */
@@ -121,6 +123,32 @@
           <li class="nav__item">
             <a class="nav__link" href="index.html#section--2">Services</a>
           </li>
+          <!-- <li class="nav__item">
+            <a class="nav__link nav__link--btn btn--show-modal" href="#"
+              >Contact</a
+            >
+          </li> -->
+        </ul>
+      </nav>
+      <nav class="navbar">
+        <img
+        src=".//img/logo-pn.png"
+        alt="Bankist logo"
+        class="nav__logo"
+        id="logo"
+        designer="Jonas"
+        data-version-number="3.0"
+      />
+        <ul class="mobile-nav">
+          <li class="nav__item">
+            <a class="nav__link" href="#header">Home</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--1">About Us</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--2">Services</a>
+          </li>
           <li class="nav__item">
             <a class="nav__link nav__link--btn btn--show-modal" href="#"
               >Contact</a
@@ -128,6 +156,14 @@
           </li>
         </ul>
       </nav>
+    
+      <!-- Hamburger Menu Icon -->
+      <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
       <section class="section section--teams" id="team">
         <div class="team-container">
             <h1 class="header2--title">Meet Our Team: Board of Directors</h1>
@@ -138,7 +174,7 @@
                 <div class="team-info">
                   <p class="team-name">Hajia Rukkayah Nahuche</p>
                   <p class="team-role">Chairperson</p>
-                  <button class="btn"><a href="./chairperson.html">View Profile</a></button>
+                  <button class="btn btn--show-modal">View Profile</button>
                 </div>
               </div>
                <!-- Team Member 2 -->
@@ -147,7 +183,7 @@
                 <div class="team-info">
                   <p class="team-name">David Bajani</p>
                   <p class="team-role">Non-Executive Director</p>
-                  <button class="btn">View Profile</button>
+                  <button class="btn btn--show-modal-2">View Profile</button>
                 </div>
               </div>
               <!-- Team Member 3 -->
@@ -156,7 +192,7 @@
                 <div class="team-info">
                   <p class="team-name">Hassan Lawal</p>
                   <p class="team-role">Non-Executive Director</p>
-                  <button class="btn">View Profile</button>
+                  <button class="btn btn--show-modal-3">View Profile</button>
                 </div>
               </div>
              
@@ -167,7 +203,7 @@
                 <div class="team-info">
                   <p class="team-name">Mr Akinbode Olutayo Amos</p>
                   <p class="team-role">Managing Director/CEO</p>
-                  <button class="btn">View Profile</button>
+                  <button class="btn btn--show-modal-4">View Profile</button>
                   
                 </div>
               </div>
@@ -177,7 +213,7 @@
                 <div class="team-info">
                   <p class="team-name">Mr Tijani Ahmed</p>
                   <p class="team-role">Non-Executive Director</p>
-                  <button class="btn">View Profile</button>
+                  <button class="btn btn--show-modal-5">View Profile</button>
                 </div>
               </div>
 
@@ -210,13 +246,13 @@
             both our clients and our partners. We have a very hard working and result oriented management team, backed up by a visionary board comprising young and agile investors and professionals who have distinguished themselves in their respective field of endeavours.</p>
       </section>
       
-      </header>
+    
      
 
       
 
 
-      <section class="section section--sign-up">
+      <!-- <section class="section section--sign-up">
         <div class="section__title">
           <h3 class="section__header">
             The best day to join us was one year ago. The second best is today!
@@ -224,7 +260,7 @@
         </div>
         <button class="btn btn--show-modal">Join today!</button>
       </section>
-  
+   -->
       <footer class="footer">
         <ul class="footer__nav">
           <li class="footer__item">
@@ -264,20 +300,91 @@
       <div class="modal hidden">
         <button class="btn--close-modal">&times;</button>
         <h2 class="modal__header">
-          Sign up <br />
-          in just <span class="highlight">2 minutes</span>
+          Brief Info <br />
+          About our <span class="highlight">Board</span>
         </h2>
-        <form class="modal__form">
-          <label>First Name</label>
-          <input type="text" />
-          <label>Last Name</label>
-          <input type="text" />
-          <label>Email Address</label>
-          <input type="email" />
-          <button class="btn">Next step &rarr;</button>
-        </form>
+        <div class="brief-info">
+          <h3>RUKAYYA AMINU NAHUCE: CHAIRPERSON</h3>
+            <p>Mrs. Nahuce is a graduate of the renowned Usman Danfodio University Sokoto and the
+            Current Board Chairman of Paster Noster Insurance Brokers Limited.</p>
+            
+            <p>She is a vast administrator who has seen the growth and self-sustenance of several ventures over the
+            last 12 years. Her remarkable experience in the insurance industry is remarkable.
+            She has attended several local and international seminars on insurance and sustainable growth of SMEs in Africa.</p>
+        </div>
       </div>
+
+      <div class="modal-2 hidden">
+        <button class="btn--close-modal-2">&times;</button>
+        <h2 class="modal__header">
+          Brief Info <br />
+          About our <span class="highlight">Board</span>
+        </h2>
+        <div class="brief-info">
+          <h3>MR DAVID BAJANI: DIRECTOR</h3>
+            <p>Mr David Bajani is a graduate of Business Administration and Management and an
+              experienced marketer with proven track records of performance in the insurance
+              industry spanning over 15 years. He has work in different capacity ranging from as
+              business development and regulatory compliance Manager, corporate marketing, logistic
+              and supply chain management and client profiling</p>
+            
+            <p>Over the years, he has become active member of several professional bodies amongst which are Business Continuity
+              Professional, IPMA, CIFIAN and PRMIA and these has in no small measure shaped his
+              career. He also attended several local, international, and online professional and leadership trainings. He is skilled in Business Planning, Disaster Recovery and Management.
+              Financial Analysis. Risk Management, John Maxwell Leadership Training Certificate and
+              vast with Excel as tool. He is passionate about business reengineering and service delivery.
+              </p>
+        </div>
+      </div>
+
+      <div class="modal-3 hidden">
+        <button class="btn--close-modal-3">&times;</button>
+        <h2 class="modal__header">
+          Brief Info <br />
+          About our <span class="highlight">Board</span>
+        </h2>
+        <div class="brief-info">
+          <h3>MR. HASSAN LAWAN: DIRECTOR</h3>
+            <p>Mr. Hassan Lawan Graduated from Bayero University Kano, with honors degree in
+              Business Administration. He also holds a master’s degree in business administration, and
+              a post graduate diploma in Management. He started his career with Reliance bank as an
+              Executive Trainee in 2005. He served in the bank before joining Intercontinental WAPIC
+              Insurance Plc as an assistant manager in 2008.</p>
+            
+            <p>He acquired vast experience in the private sector, and later joined Prohealth HMO
+              Limited as an Assistant Manager, and rose to the level of Head of Business Development
+              and Marketing. He became a key member of the internal audit team tasked with
+              designing and implementing various programmes for the prevention and detection of
+              fraud errors and irregularities in the company. Armed with these qualities, he has shaped, coordinated and stabilized the finances of Torcelik International Company
+              limited, with a clear understanding on a single approach.
+              
+              </p>
+        </div>
+      </div>
+
+      <div class="modal-4 hidden">
+        <button class="btn--close-modal-4">&times;</button>
+        <h2 class="modal__header">
+          Brief Info <br />
+          About our <span class="highlight">Board</span>
+        </h2>
+        <div class="brief-info">
+          <h3>AKINBODE OLUTAYO AMOS: MD/CEO</h3>
+            <p>Mr Olutayo is the Managing Director and Chief Executive Officer of Paster Noster, he is a
+              graduate of Geography from the University of Calabar with vast work experience
+              spanning over 24 years in the insurance industry. Amongst other company he has worked
+              in top management positions are Leverage Insurance Brokers limited, Femi Johnson &
+              Company, Onward Insurance Brokers, Esenard Insurance Brokers, and Comelot Insurance
+              Brokers before joining Paster Noster in 2022. He is a Chartered member of the Associate of the Chartered Insurance Institute of Nigeria.</p>
+            
+           
+        </div>
+      </div>
+
+
+      
       <div class="overlay hidden"></div>
+  
   
       <!-- <script src="script.js"></script> -->
     </body>
