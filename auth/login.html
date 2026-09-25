@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" type="image/png" href="img/main-logo.jpg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <title>Login | Paternoster Insurance</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  
+  <style>
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #10b981;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      display: none;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
+      font-weight: 500;
+    }
+    .toast.error {
+      background: #ef4444;
+    }
+    .toast i {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+
+    <!-- LEFT SIDE: Form -->
+    <div class="form-section">
+      
+      <div class="logo">
+        <img src="/img/logo-pn.png" alt="Paternoster Insurance" class="logo-image">
+      </div>
+
+      <div class="welcome-text">
+        <h1>Holla, Welcome Back</h1>
+        <p>Hey, welcome back to your special place</p>
+      </div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Email Address" required />
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="password" placeholder="Password" required />
+        </div>
+
+        <div class="options">
+          <label class="checkbox-label">
+            <input type="checkbox">
+            Remember me
+          </label>
+          <a href="#" class="forgot-link">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="sign-in-btn">Sign In</button>
+      </form>
+
+      <p class="signup-text">
+        Don't have an account? 
+        <a href="#" class="signup-link">Sign Up</a>
+      </p>
+    </div>
+
+    <!-- RIGHT SIDE: Illustration -->
+    <div class="illustration-section">
+      <img src="https://images.unsplash.com/photo-1518624215357-5b8dce13e1e7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNreXNjcmFwZXJ8ZW58MHx8MHx8fDA%3D" 
+           alt="Login Illustration" 
+           class="illustration-image">
+    </div>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <i class="ri-check-line"></i>
+    <span id="toastMessage"></span>
+  </div>
+
+  <!-- Firebase Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB3n9Bvt0xkYKOG1_ThJdQoh7EKEOpBuPI",
+      authDomain: "paternoster-dashboard.firebaseapp.com",
+      projectId: "paternoster-dashboard",
+      storageBucket: "paternoster-dashboard.firebasestorage.app",
+      messagingSenderId: "541647810477",
+      appId: "1:541647810477:web:9125000d187c38677ebb24"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const form = document.getElementById("loginForm");
+    const toast = document.getElementById("toast");
+    const toastMessage = document.getElementById("toastMessage");
+
+    function showToast(msg, isError = false) {
+      toastMessage.textContent = msg;
+      toast.classList.toggle("error", isError);
+      toast.style.display = "flex";
+      setTimeout(() => {
+        toast.style.display = "none";
+      }, 3000);
+    }
+
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          const role = docSnap.data().role;
+
+          if (role === "admin") {
+            window.location.href = "/dashboard/admin/index.html";
+          } else {
+            window.location.href = "/dashboard/client/index.html";
+          }
+        } else {
+          showToast("No role assigned to this user", true);
+        }
+
+      } catch (error) {
+        showToast(error.message, true);
+      }
+    });
+  </script>
+</body>
+</html>
